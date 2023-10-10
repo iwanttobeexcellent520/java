@@ -1,0 +1,12 @@
+没有中文可以字节流简单些
+File file=new File("path");
+
+FileInputStream	FileOutputStream   实例化对象出来
+
+while((i=FS.read())!=-1)			FS.write(byte[])
+
+有中文可以用File__  和Buffered__ 
+File 
+FileReader FileWriter 对象 fr,fw, 
+BufferedReader BufferedWriter 实例化对象 new BufferedReader(fr);
+bw.write(new String (""))		或 rw.readLine()

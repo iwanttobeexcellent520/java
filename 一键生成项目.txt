@@ -1,0 +1,24 @@
+@SpringBootTest
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+class Demo1ApplicationTests {
+
+    @Test
+    void contextLoads() {
+        FastAutoGenerator.create("jdbc:mysql://localhost:3306/world","root","").globalConfig(builder -> {
+            builder.author("wxk").fileOverride().outputDir("E:\\dowload\\work\\java\\demo1\\src\\main\\java");
+        }).packageConfig(builder -> builder.parent("com.example.demo")
+                        .moduleName("modul")
+                        .entity("entity")
+                        .service("service")
+                        .mapper("mapp")
+                )
+                .strategyConfig(builder -> {
+                    builder.addInclude("motto","music","album")
+                            .addTablePrefix("sys_");
+                })
+                .templateEngine(new FreemarkerTemplateEngine())
+                .execute();
+
+    }
+
+}
